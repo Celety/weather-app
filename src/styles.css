@@ -15,6 +15,10 @@ body {
   color: white;
 }
 
+.siteInfo {
+  margin: 0;
+}
+
 .city {
   font-weight: bold;
   font-size: 30px;
@@ -52,4 +56,9 @@ body {
   text-align: center;
   width: 200px;
   color: white;
+}
+
+#github-link {
+  color: white;
+  font-weight: bold;
 }

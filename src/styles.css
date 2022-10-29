@@ -15,10 +15,6 @@ body {
   color: white;
 }
 
-.siteInfo {
-  margin: 0;
-}
-
 .city {
   font-weight: bold;
   font-size: 30px;
@@ -58,7 +54,12 @@ body {
   color: white;
 }
 
+.siteInfo {
+  margin: 0;
+  color: lightgray;
+}
+
 #github-link {
-  color: white;
+  color: lightgray;
   font-weight: bold;
 }

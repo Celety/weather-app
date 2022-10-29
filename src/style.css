@@ -1,0 +1,55 @@
+body {
+  background-image: url("src/background.jpg");
+}
+
+.container {
+  max-width: 400px;
+}
+
+.currentWeather {
+  background-color: rgba(41, 41, 41, 0.8);
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.city {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.hour {
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+.weather {
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.hourly {
+  text-align: center;
+}
+.weatherHourly {
+  background-color: rgba(41, 41, 41, 0.8);
+  margin: 5px;
+  color: white;
+}
+
+.weeklyForecast {
+  background-color: rgba(41, 41, 41, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.weeklyList {
+  margin: 5px;
+  background-color: rgb(41, 41, 41);
+  text-align: center;
+  width: 200px;
+  color: white;
+}

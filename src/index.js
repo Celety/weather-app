@@ -51,7 +51,6 @@ currentHour.innerHTML = `${hours}:${minutes}`;
 //Changing city and temperature
 
 function showTemp(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML =
     response.data.name.toUpperCase();
   document.querySelector("#temperature").innerHTML = Math.round(

@@ -69,3 +69,9 @@ body {
   position: relative;
   top: -30px;
 }
+
+.weather .active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+}

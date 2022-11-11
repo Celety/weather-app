@@ -56,12 +56,17 @@ function showTemp(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+
+  //Changing icon
   document
     .querySelector("#weather-icon")
     .setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+
+  //Unit conversion?
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchTemperature(newCity) {
@@ -78,5 +83,16 @@ function changeCity(event) {
 
 let city = document.querySelector("#change-city");
 city.addEventListener("submit", changeCity);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let celsiusTemp = null;
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 searchTemperature(`warsaw`);

@@ -31,6 +31,12 @@ body {
   font-size: 60px;
 }
 
+.weather-conditions {
+  font-weight: lighter;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .hourly {
   text-align: center;
 }

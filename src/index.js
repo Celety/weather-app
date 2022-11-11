@@ -51,6 +51,7 @@ currentHour.innerHTML = `${hours}:${minutes}`;
 //Changing city and temperature
 
 function showTemp(response) {
+  console.log(response.data);
   document.querySelector("#current-city").innerHTML =
     response.data.name.toUpperCase();
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -75,6 +76,10 @@ function showTemp(response) {
   //Wind speed
   let windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = `windspeed: ${response.data.wind.speed} km/h`;
+
+  //Humidity
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `humidity: ${response.data.main.humidity}%`;
 }
 
 function searchTemperature(newCity) {

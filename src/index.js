@@ -67,6 +67,14 @@ function showTemp(response) {
 
   //Unit conversion?
   celsiusTemp = response.data.main.temp;
+
+  //Weather description
+  let descriptionElement = document.querySelector("#weather-description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
+  //Wind speed
+  let windElement = document.querySelector("#wind-speed");
+  windElement.innerHTML = `windspeed: ${response.data.wind.speed} km/h`;
 }
 
 function searchTemperature(newCity) {

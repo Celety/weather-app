@@ -63,3 +63,9 @@ body {
   color: lightgray;
   font-weight: bold;
 }
+
+#units {
+  font-size: 20px;
+  position: relative;
+  top: -30px;
+}

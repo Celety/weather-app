@@ -48,6 +48,28 @@ if (minutes < 10) {
 let currentHour = document.querySelector("#current-hour");
 currentHour.innerHTML = `${hours}:${minutes}`;
 
+//Weekly forecast
+
+function displayWeeklyForecast() {
+  let weeklyForecastElement = document.querySelector(`.forecastList`);
+
+  let weeklyForecastHTML = "";
+
+  let weekDays = ["THU", "FRI", "SAT", "SUN", "MON"];
+  weekDays.forEach(function (day) {
+    weeklyForecastHTML =
+      weeklyForecastHTML +
+      `<li class="list-group-item weeklyList">
+            <div class="weekly-forecast-day">${day}</div>
+            <div class="weekly-forecast-icon">🌨</div>
+            <div class="weekly-forecast-temp">-2°C</div>
+          </li>`;
+  });
+
+  weeklyForecastElement.innerHTML = weeklyForecastHTML;
+}
+
+displayWeeklyForecast();
 //Changing city and temperature
 
 function showTemp(response) {

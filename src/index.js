@@ -57,6 +57,14 @@ function formatForecastDay(timestamp) {
   return days[day];
 }
 
+//Fixing display of hour in hourly forecast
+function formatForecastHour(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours();
+
+  return [`${hour} : 00`];
+}
+
 //Weekly forecast
 
 function displayWeeklyForecast(response) {
@@ -95,26 +103,38 @@ function displayWeeklyForecast(response) {
 }
 
 //Hourly forecast
-function displayHourlyForecast() {
+function displayHourlyForecast(response) {
+  console.log(response.data.hourly);
   let hourlyForecastElement = document.querySelector(`.hourly`);
 
   let hourlyForecastHTML = "";
 
-  let hours = ["18;00", "19;00", "20;00", "21;00", "22;00"];
-  hours.forEach(function (hour) {
-    hourlyForecastHTML =
-      hourlyForecastHTML +
-      `<li class="list-group-item weatherHourly">
-              <div class="hourly-forecast-hour">${hour}</div>
-              <div class="hourly-forecast-icon">🌨</div>
-              <div class="hourly-forecast-icon">-5°C</div>
+  let hours = response.data.hourly;
+
+  hours.forEach(function (forecastHour, index) {
+    if (index < 5) {
+      hourlyForecastHTML =
+        hourlyForecastHTML +
+        `<li class="list-group-item weatherHourly">
+              <div class="hourly-forecast-hour">${formatForecastHour(
+                forecastHour.dt
+              )}</div>
+              <div class="hourly-forecast-icon">              <img
+              src="http://openweathermap.org/img/wn/${
+                forecastHour.weather[0].icon
+              }.png"
+              alt=""
+              width="38"
+              /></div>
+              <div class="hourly-forecast-icon">${Math.round(
+                forecastHour.temp
+              )}°</div>
             </li>`;
+    }
   });
 
   hourlyForecastElement.innerHTML = hourlyForecastHTML;
 }
-
-displayHourlyForecast();
 
 //Collecting weekly forecast data
 function getWeeklyForecast(coordinates) {
@@ -122,6 +142,7 @@ function getWeeklyForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayWeeklyForecast);
+  axios.get(apiUrl).then(displayHourlyForecast);
 }
 
 //Changing city and temperature

@@ -50,7 +50,8 @@ currentHour.innerHTML = `${hours}:${minutes}`;
 
 //Weekly forecast
 
-function displayWeeklyForecast() {
+function displayWeeklyForecast(response) {
+  console.log(response.data.daily);
   let weeklyForecastElement = document.querySelector(`.forecastList`);
 
   let weeklyForecastHTML = "";
@@ -69,8 +70,6 @@ function displayWeeklyForecast() {
   weeklyForecastElement.innerHTML = weeklyForecastHTML;
 }
 
-displayWeeklyForecast();
-
 //Hourly forecast
 function displayHourlyForecast() {
   let hourlyForecastElement = document.querySelector(`.hourly`);
@@ -82,7 +81,7 @@ function displayHourlyForecast() {
     hourlyForecastHTML =
       hourlyForecastHTML +
       `<li class="list-group-item weatherHourly">
-              <div class="hourly-forecast-hour">18:00</div>
+              <div class="hourly-forecast-hour">${hour}</div>
               <div class="hourly-forecast-icon">🌨</div>
               <div class="hourly-forecast-icon">-5°C</div>
             </li>`;
@@ -92,6 +91,14 @@ function displayHourlyForecast() {
 }
 
 displayHourlyForecast();
+
+//Collecting weekly forecast data
+function getWeeklyForecast(coordinates) {
+  let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeeklyForecast);
+}
 
 //Changing city and temperature
 
@@ -124,6 +131,9 @@ function showTemp(response) {
   //Humidity
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `humidity: ${response.data.main.humidity}%`;
+
+  //Sending coordinates info and calling weekly forecast function
+  getWeeklyForecast(response.data.coord);
 }
 
 function searchTemperature(newCity) {

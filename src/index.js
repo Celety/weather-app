@@ -70,6 +70,29 @@ function displayWeeklyForecast() {
 }
 
 displayWeeklyForecast();
+
+//Hourly forecast
+function displayHourlyForecast() {
+  let hourlyForecastElement = document.querySelector(`.hourly`);
+
+  let hourlyForecastHTML = "";
+
+  let hours = ["18;00", "19;00", "20;00", "21;00", "22;00"];
+  hours.forEach(function (hour) {
+    hourlyForecastHTML =
+      hourlyForecastHTML +
+      `<li class="list-group-item weatherHourly">
+              <div class="hourly-forecast-hour">18:00</div>
+              <div class="hourly-forecast-icon">🌨</div>
+              <div class="hourly-forecast-icon">-5°C</div>
+            </li>`;
+  });
+
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
+}
+
+displayHourlyForecast();
+
 //Changing city and temperature
 
 function showTemp(response) {

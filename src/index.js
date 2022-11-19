@@ -48,6 +48,15 @@ if (minutes < 10) {
 let currentHour = document.querySelector("#current-hour");
 currentHour.innerHTML = `${hours}:${minutes}`;
 
+//Fixing display of day name for weekly forecast
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}
+
 //Weekly forecast
 
 function displayWeeklyForecast(response) {
@@ -56,15 +65,30 @@ function displayWeeklyForecast(response) {
 
   let weeklyForecastHTML = "";
 
-  let weekDays = ["THU", "FRI", "SAT", "SUN", "MON"];
-  weekDays.forEach(function (day) {
-    weeklyForecastHTML =
-      weeklyForecastHTML +
-      `<li class="list-group-item weeklyList">
-            <div class="weekly-forecast-day">${day}</div>
-            <div class="weekly-forecast-icon">🌨</div>
-            <div class="weekly-forecast-temp">-2°C</div>
+  let forecast = response.data.daily;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      weeklyForecastHTML =
+        weeklyForecastHTML +
+        `<li class="list-group-item weeklyList">
+            <div class="weekly-forecast-day">${formatForecastDay(
+              forecastDay.dt
+            )}</div>
+            <div class="weekly-forecast-icon">
+              <img
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }.png"
+              alt=""
+              width="38"
+              />
+            </div>
+            <div class="weekly-forecast-temp">${Math.round(
+              forecastDay.temp.day
+            )}°</div>
           </li>`;
+    }
   });
 
   weeklyForecastElement.innerHTML = weeklyForecastHTML;

@@ -126,7 +126,7 @@ function displayHourlyForecast(response) {
               alt=""
               width="38"
               /></div>
-              <div class="hourly-forecast-icon">${Math.round(
+              <div class="hourly-forecast-temp">${Math.round(
                 forecastHour.temp
               )}°</div>
             </li>`;

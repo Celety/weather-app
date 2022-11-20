@@ -87,10 +87,10 @@
   font-weight: bold;
 }
 
-#units {
-  font-size: 20px;
+#unit {
+  font-size: 50px;
   position: relative;
-  top: -40px;
+  top: -20px;
 }
 
 .weather .active {

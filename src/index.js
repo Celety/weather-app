@@ -68,7 +68,6 @@ function formatForecastHour(timestamp) {
 //Weekly forecast
 
 function displayWeeklyForecast(response) {
-  console.log(response.data.daily);
   let weeklyForecastElement = document.querySelector(`.forecastList`);
 
   let weeklyForecastHTML = "";
@@ -104,7 +103,6 @@ function displayWeeklyForecast(response) {
 
 //Hourly forecast
 function displayHourlyForecast(response) {
-  console.log(response.data.hourly);
   let hourlyForecastElement = document.querySelector(`.hourly`);
 
   let hourlyForecastHTML = "";

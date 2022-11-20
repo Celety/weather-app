@@ -162,6 +162,51 @@ function showTemp(response) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
 
+  //Changing background
+  let background = document.querySelector("body");
+
+  if (response.data.main.temp < -25) {
+    background.style.background = "url('src/1.jpg')";
+  }
+  if (response.data.main.temp > -25 && response.data.main.temp < -17) {
+    background.style.background = "url('src/2.jpg')";
+  }
+  if (response.data.main.temp > -17 && response.data.main.temp < -7) {
+    background.style.background = "url('src/3.jpg')";
+  }
+  if (response.data.main.temp > -7 && response.data.main.temp < -2) {
+    background.style.background = "url('src/4.jpg')";
+  }
+  if (response.data.main.temp > -2 && response.data.main.temp < 4) {
+    background.style.background = "url('src/5.jpg')";
+  }
+  if (response.data.main.temp > 4 && response.data.main.temp < 8) {
+    background.style.background = "url('src/6.jpg')";
+  }
+  if (response.data.main.temp > 8 && response.data.main.temp < 10) {
+    background.style.background = "url('src/7.jpg')";
+  }
+  if (response.data.main.temp > 10 && response.data.main.temp < 12) {
+    background.style.background = "url('src/8.jpg')";
+  }
+  if (response.data.main.temp > 12 && response.data.main.temp < 15) {
+    background.style.background = "url('src/9.jpg')";
+  }
+  if (response.data.main.temp > 15 && response.data.main.temp < 18) {
+    background.style.background = "url('src/10.jpg')";
+  }
+  if (response.data.main.temp > 18 && response.data.main.temp < 23) {
+    background.style.background = "url('src/11.jpg')";
+  }
+  if (response.data.main.temp > 23 && response.data.main.temp < 28) {
+    background.style.background = "url('src/12.jpg')";
+  }
+  if (response.data.main.temp > 28 && response.data.main.temp < 33) {
+    background.style.background = "url('src/13.jpg')";
+  }
+  if (response.data.main.temp > 33 && response.data.main.temp < 60) {
+    background.style.background = "url('src/14.jpg')";
+  }
   //Unit conversion?
   celsiusTemp = response.data.main.temp;
 

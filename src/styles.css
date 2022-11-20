@@ -1,5 +1,5 @@
-body {
-  background-image: url("background.jpg");
+.body {
+  background: white;
 }
 
 .container {
@@ -7,7 +7,7 @@ body {
 }
 
 .currentWeather {
-  background-color: rgba(41, 41, 41, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 15px;
@@ -53,21 +53,21 @@ body {
 }
 
 .weatherHourly {
-  background-color: rgba(41, 41, 41, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   margin: 2px;
   padding: 4px 0px;
   color: white;
 }
 
 .weeklyForecast {
-  background-color: rgba(41, 41, 41, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 8px;
   border-radius: 10px;
 }
 
 .weeklyList {
   margin: 2px;
-  background-color: rgb(41, 41, 41);
+  background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   width: 200px;
   color: white;
